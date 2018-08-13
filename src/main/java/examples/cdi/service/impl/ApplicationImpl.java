@@ -3,6 +3,7 @@ package examples.cdi.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,10 +30,14 @@ public class ApplicationImpl implements Application {
 		services.add(srv2);
 	}
 
+	@PostConstruct
+	public void postConstruct() {
+		services.add(service);
+	}
+
 	@Override
 	public void run() {
 		System.out.println("Running the application");
-		service.process();
 		services.stream().forEach(srv -> srv.process());
 	}
 
