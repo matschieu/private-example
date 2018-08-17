@@ -1,5 +1,7 @@
 package examples.cdi.service.impl;
 
+import javax.annotation.PostConstruct;
+
 import examples.cdi.service.Service;
 
 /**
@@ -7,6 +9,11 @@ import examples.cdi.service.Service;
  *
  */
 public class AbstractService implements Service {
+
+	@PostConstruct
+	public void postConstruct() {
+		System.out.println("Instanciating " + this.getClass().getSimpleName());
+	}
 
 	@Override
 	public void process() {

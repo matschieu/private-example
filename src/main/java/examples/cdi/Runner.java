@@ -13,12 +13,13 @@ public class Runner {
 
 	public void start() {
 		Weld weld = new Weld();
-	    WeldContainer container = weld.initialize();
-	    Application srv = container.select(Application.class).get();
+		weld.enableDevMode();
+		WeldContainer container = weld.initialize();
+		Application srv = container.select(Application.class).get();
 
-	    srv.run();
+		srv.run();
 
-	    container.shutdown();
+		container.shutdown();
 	}
 
 	public static void main(String[] args) {

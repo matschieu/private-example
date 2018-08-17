@@ -32,6 +32,7 @@ public class ApplicationImpl implements Application {
 
 	@PostConstruct
 	public void postConstruct() {
+		System.out.println("Application post-construct");
 		services.add(service);
 	}
 
